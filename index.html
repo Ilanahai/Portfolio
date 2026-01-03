@@ -1,283 +1,446 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ilanahai Pehan | Data Science Portfolio</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: "Poppins", sans-serif;
-            background-color: #f5f5f5;
-            color: #222;
-        }
-        header {
-            background: linear-gradient(135deg, #004e64, #00a5cf);
-            color: white;
-            text-align: center;
-            padding: 70px 20px;
-        }
-        nav {
-            background: #ffffff;
-            padding: 15px 0;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #004e64;
-            font-weight: 600;
-        }
-        section {
-            max-width: 1100px;
-            margin: auto;
-            padding: 60px 20px;
-        }
-        h2 {
-            color: #004e64;
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-        .card {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-        footer {
-            background: #004e64;
-            color: white;
-            text-align: center;
-            padding: 30px;
-            margin-top: 50px;
-        }
-        .contact a {
-            display: inline-block;
-            margin: 5px 12px;
-            color: #004e64;
-            text-decoration: none;
-            font-weight: 600;
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ilanahai Pehan | Data Analyst Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --accent:#f97316;
+  --text:#ffffff;
+  --muted:#cbd5e1;
+  --bg:#0f172a;
+  --card:#020617;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* NAVBAR */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:18px 60px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:100;
+  transition:.3s;
+}
+
+nav.scrolled{
+  background:rgba(15,23,42,.9);
+  backdrop-filter:blur(10px);
+}
+
+nav h2{
+  font-weight:700;
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:28px;
+}
+
+nav ul li a{
+  text-decoration:none;
+  color:var(--text);
+  font-weight:500;
+  opacity:.85;
+}
+
+nav ul li a:hover,
+nav ul li a.active{
+  opacity:1;
+  color:var(--accent);
+}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  background:
+    linear-gradient(to right,rgba(0,0,0,.75),rgba(0,0,0,.25)),
+    url('https://images.unsplash.com/photo-1492724441997-5dc865305da7') center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  padding:0 80px;
+}
+
+.hero-content{
+  max-width:650px;
+}
+
+.hero h1{
+  font-size:3.5rem;
+  margin-bottom:15px;
+}
+
+.hero h1 span{
+  color:var(--accent);
+}
+
+.hero p{
+  color:var(--muted);
+  font-size:1.1rem;
+  line-height:1.6;
+  margin-bottom:30px;
+}
+
+.hero-buttons a{
+  display:inline-block;
+  padding:12px 30px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  margin-right:15px;
+}
+
+.btn-primary{
+  background:var(--accent);
+  color:#000;
+}
+
+.btn-outline{
+  border:2px solid var(--accent);
+  color:var(--accent);
+}
+
+/* SECTION */
+section{
+  padding:100px 80px;
+}
+
+section h2{
+  font-size:2.3rem;
+  margin-bottom:40px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:var(--card);
+  padding:30px;
+  border-radius:18px;
+  transition:.4s;
+}
+
+.card h3{
+  color:var(--accent);
+  margin-bottom:10px;
+}
+
+.card a{
+  color:var(--accent);
+  text-decoration:none;
+}
+
+.card a:hover{
+  text-decoration:underline;
+}
+
+/* FOOTER */
+footer{
+  padding:30px;
+  text-align:center;
+  color:var(--muted);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav{padding:15px 25px}
+  nav ul{display:none}
+  .hero{padding:0 25px}
+  .hero h1{font-size:2.4rem}
+  section{padding:80px 25px}
+}
+</style>
 </head>
+
 <body>
-    <header>
-        <h1>Ilanahai Pehan</h1>
-        <p>Data Science | Analytics | Cloud | Machine Learning</p>
-    </header>
 
-    <nav>
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
-    </nav>
+<!-- NAV -->
+<nav id="navbar">
+  <h2>Ilanahai</h2>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>
-            I am a motivated Data Science professional skilled in Python, SQL, machine learning,
-            visualization, Azure & Google Cloud. Passionate about transforming raw data into meaningful
-            insights, building analytical workflows, and solving real-world problems. Strong team
-            collaborator with experience in delivering reliable data-driven outcomes.
-        </p>
-    </section>
-
- <section id="experience">
-    <h2>Work Experience</h2>
-
-    <!-- Apexon -->
-    <div class="card">
-        <h3>Data Annotator — Apexon</h3>
-        <p><strong>Jan 2025 – Apr 2025</strong></p>
-        <ul>
-            <li>Annotated large image & video datasets for autonomous vehicle AI.</li>
-            <li>Ensured dataset accuracy using structured validation workflows.</li>
-            <li>Collaborated with ML engineers to optimize model performance.</li>
-            <li>Maintained documentation and tracking using Excel & Google Sheets.</li>
-        </ul>
+<!-- HERO -->
+<div class="hero" id="home">
+  <div class="hero-content">
+    <h1>Hello, I'm <span>Ilanahai</span></h1>
+    <p>
+      Data Analyst & Cloud Analytics Engineer<br>
+      SQL • Python • Power BI • Microsoft Azure
+    </p>
+    <div class="hero-buttons">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="Ilanahai_Resume.pdf" target="_blank" class="btn-outline">Download CV</a>
     </div>
-
-    <!-- Generative AI Internship -->
-    <div class="card" style="margin-top:20px;">
-        <h3>Generative AI Virtual Intern — Google Cloud</h3>
-        <p><strong>Aug 2024 – Oct 2024</strong></p>
-        <ul>
-            <li>Completed hands-on modules in Generative AI, LLMs & prompt engineering.</li>
-            <li>Developed AI-powered solutions using Vertex AI & foundation models.</li>
-            <li>Performed text generation, embedding, summarization & classification tasks.</li>
-            <li>Collaborated in virtual learning groups and completed project assignments.</li>
-        </ul>
-    </div>
-</section>
-
- <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects-grid">
-        <div class="card">
-            <h3>Tokyo Olympics Azure Data Pipeline</h3>
-            <p>
-                Built an automated data engineering pipeline using Azure Data Factory, Databricks,
-                Data Lake & Synapse, powering analytical dashboards in Power BI.
-            </p>
-            <a href="https://github.com/Ilanahai/Azure---Data-engineer-project" target="_blank">View Project</a>
-        </div>
-        <div class="card">
-            <h3>Yelp Review Sentiment Analytics</h3>
-            <p>
-                Collected and cleaned Yelp review datasets, applied NLP sentiment analysis, and built
-                ML prediction models with visual business insights.
-            </p>
-            <a href="https://github.com/Ilanahai/AWS---Data-analytics-project" target="_blank">View Project</a>
-        </div>
-        <div class="card">
-            <h3>Customer Segmentation in Marketing with Python Project</h3>
-            <p>
-                Built customer segmentation model using K-means + Hierarchical clustering on 3,834 EdTech students. Engineered features from 8 acquisition channels (YouTube, LinkedIn, Google) & 3 global regions. Discovered YouTube drives 35% high-value segments ($287 avg CLV). Recommended 60% budget reallocation for 20-30% CLV uplift
-            </p>
-            <a href="https://github.com/Ilanahai/Customer-Segmentation-in-Marketing-with-Python-Project">View Project</a>
-        </div>
-        
-</section>
-
-    <section id="skills">
-        <h2>Skills</h2>
-        <div class="card">
-            <p><strong>Programming:</strong> Python, Java, C++, DSA</p>
-            <p><strong>Analytics & Tools:</strong> SQL, Power BI, Excel, Jupyter, Git</p>
-            <p><strong>Libraries:</strong> Pandas, NumPy, Matplotlib</p>
-            <p><strong>Cloud:</strong> Azure, Google Cloud, Vertex AI</p>
-            <p><strong>Math:</strong> Statistics, Probability, Linear Algebra</p>
-            <p><strong>Soft Skills:</strong> Problem-solving, Collaboration, Documentation</p>
-        </div>
-    </section>
-
-   <section id="certifications">
-    <h2>Certifications</h2>
-
-    <div class="projects-grid">
-
-        <div class="card">
-            <h3>
-                <a href="Az104.pdf" target="_blank">
-                    Azure Administrator Associate (AZ-104)
-                </a>
-            </h3>
-            <p>Microsoft</p>
-        </div>
-
-        <div class="card">
-            <h3>
-                <a href="AZ 305.pdf" target="_blank">
-                    Azure Solutions Architect (AZ-305)
-                </a>
-            </h3>
-            <p>Microsoft</p>
-        </div>
-
-        <div class="card">
-            <h3>
-                <a href="Data Science.pdf" target="_blank">
-                    Data Scientist Career Track
-                </a>
-            </h3>
-            <p>365 Data Science</p>
-        </div>
-
-        <div class="card">
-            <h3>
-                <a href="Google Cloud.pdf" target="_blank">
-                    Prompt Design in Vertex AI
-                </a>
-            </h3>
-            <p>Google Cloud</p>
-        </div>
-
-        <div class="card">
-            <h3>
-                <a href="Virtual internship - Gen AI.pdf" target="_blank">
-                    Generative AI Virtual Internship
-                </a>
-            </h3>
-            <p>Google Cloud & Smart Internz</p>
-        </div>
-
-        <div class="card">
-            <h3>
-                <a href="Gemini.pdf" target="_blank">
-                   Gemini Certified Student
-                </a>
-            </h3>
-            <p>Google</p>
-        </div>
-
-    </div>
-</section>
-
-    <section id="education">
-        <h2>Education</h2>
-        <div class="card">
-            <p><strong>M.Sc Computer Science — KAHE, Coimbatore</strong> | CGPA: 8.6 (2022–2024)</p>
-            <p><strong>B.Sc Computer Science — SASTRA University</strong> | CGPA: 6.2 (2019–2022)</p>
-        </div>
-    </section>
-
-    <section id="contact">
-    <h2>Contact</h2>
-
-    <div style="max-width:500px; margin:auto; font-size:18px;">
-        <div style="display:flex; margin-bottom:10px;">
-            <strong style="width:120px;">Email:</strong>
-            <a href="mailto:ilanahai21@gmail.com" style="color:#004e64;">ilanahai21@gmail.com</a>
-        </div>
-
-        <div style="display:flex; margin-bottom:10px;">
-            <strong style="width:120px;">LinkedIn:</strong>
-            <a href="https://www.linkedin.com/in/ilanahai-pehan-53b805374" target="_blank" style="color:#004e64;">
-                linkedin.com/in/ilanahai-pehan-53b805374
-            </a>
-        </div>
-
-        <div style="display:flex; margin-bottom:10px;">
-    <strong style="width:120px;">GitHub:</strong>
-    <a href="https://github.com/Ilanahai" target="_blank" style="color:#004e64;">
-        github.com/Ilanahai
-    </a>
+  </div>
 </div>
 
+<!-- ABOUT -->
+<section id="about">
+  <h2>About Me</h2>
+  <p style="max-width:900px;line-height:1.8;color:#cbd5e1;">
+    Data Science professional skilled in Python, SQL, machine learning, data analysis, and data visualization, with hands-on experience in Azure and Google Cloud platforms. Passionate about transforming raw data into actionable insights and building scalable analytical workflows.
+Experienced in working with large datasets, developing predictive models, and creating dashboards that support business decision-making. Strong problem-solving mindset with a focus on data quality, performance, and continuous improvement.
+  </p>
+</section>
 
-        <div style="display:flex; margin-bottom:10px;">
-            <strong style="width:120px;">Location:</strong>
-            <span>Kumbakonam, Tamil Nadu</span>
-        </div>
+<!-- EXPERIENCE -->
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Data Annotator — Apexon</h3>
+      <p>Jan 2025 – Apr 2025</p>
+      <ul>
+        <li>Annotated autonomous driving datasets.</li>
+        <li>Maintained high-quality labels using Excel & Sheets.</li>
+        <li>Improved AI model accuracy through precise annotation.</li>
+      </ul>
     </div>
+  </div>
 </section>
 
-    
-    <section id="resume" style="text-align:center; padding: 20px;">
-    <a href="Resume_Ilanahai_Pehan.pdf" download
-       style="background:#004e64; color:white; padding:12px 22px; border-radius:8px; text-decoration:none; font-weight:600;">
-       📄 Download My Resume (PDF)
-    </a>
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="cards">
+
+    <div class="card">
+      <h3>Tokyo Olympics Data Pipeline</h3>
+      <p>Azure Data Factory • Databricks • Synapse • Power BI</p>
+      <a href="https://github.com/Ilanahai/Azure---Data-engineer-project" target="_blank">
+        View on GitHub →
+      </a>
+    </div>
+
+    <div class="card">
+      <h3>Yelp Reviews Sentiment Analysis</h3>
+      <p>Python • NLP • Machine Learning</p>
+      <a href="https://github.com/Ilanahai/AWS---Data-analytics-project" target="_blank">
+        View on GitHub →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>📊 Data Analytics</h3>
+      <p>
+        SQL, Excel / Google Sheets, Data Visualization,
+        Google Workspace (Docs, Sheets, Gmail, Slides),
+        Jupyter Notebooks, Git
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🐍 Programming</h3>
+      <p>
+        Python (Pandas, NumPy, Matplotlib),
+        C++, Java, Data Structures & Algorithms
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>☁ Cloud & AI</h3>
+      <p>
+        Microsoft Azure,
+        Google Cloud (BigQuery, Vertex AI),
+        Generative AI, Machine Learning Basics
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>📐 Mathematics</h3>
+      <p>
+        Statistics, Linear Algebra, Probability
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🤝 Soft Skills</h3>
+      <p>
+        Problem Solving, Critical Thinking,
+        Team Collaboration, Documentation
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <h2>Certifications</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>
+        <a href="Az104.pdf"
+           target="_blank">
+          Azure Administrator Associate (AZ-104)
+        </a>
+      </h3>
+      <p>Microsoft</p>
+    </div>
+
+    <div class="card">
+      <h3>
+        <a href="AZ 305.pdf"
+           target="_blank">
+          Azure Solutions Architect (AZ-305)
+        </a>
+      </h3>
+      <p>Microsoft</p>
+    </div>
+
+    <div class="card">
+      <h3>
+        <a href="Virtual intership.pdf"
+           target="_blank">
+          Generative AI Virtual Internship
+        </a>
+      </h3>
+      <p>Google Cloud</p>
+    </div>
+
+    <div class="card">
+      <h3>
+        <a href="Google Cloud.pdf"
+           target="_blank">
+          Prompt Design in Vertex AI
+        </a>
+      </h3>
+      <p>Google Cloud</p>
+    </div>
+
+    <div class="card">
+      <h3>
+        <a href="Gemini.pdf"
+           target="_blank">
+          Gemini Certified Student
+        </a>
+      </h3>
+      <p>ISRO</p>
+    </div>
+
+    <div class="card">
+      <h3>
+        <a href="Data Sciene.pdf"
+           target="_blank">
+          Data Scientist Career Track
+        </a>
+      </h3>
+      <p>365 Data Science</p>
+    </div>
+ </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <h2>Education</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>M.Sc Computer Science</h3>
+      KAHE University — CGPA 8.6
+    </div>
+    <div class="card">
+      <h3>B.Sc Computer Science</h3>
+      SASTRA University — CGPA 6.2
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Get in Touch</h3>
+
+      <p>
+        📧
+        <a href="mailto:ilanahai996@gmail.com">
+          ilanahai996@gmail.com
+        </a>
+      </p>
+
+      <p>
+        🔗
+        <a href="https://linkedin.com/in/ilanahai-pehan-53b805374"
+           target="_blank">
+          LinkedIn Profile
+        </a>
+      </p>
+
+      <p>
+        💻
+        <a href="https://github.com/Ilanahai"
+           target="_blank">
+          GitHub Profile
+        </a>
+      </p>
+
+      <p>
+        🌐
+        <a href="https://ilanahai.github.io/Portfolio/"
+           target="_blank">
+          Portfolio Website
+        </a>
+      </p>
+    </div>
+  </div>
 </section>
 
 
-    </section>
+<footer>
+© 2025 Ilanahai Pehan — Data Analyst Portfolio
+</footer>
 
-    <footer>
-        <p>© 2025 Ilanahai Pehan — Data Science Portfolio</p>
-    </footer>
+<script>
+const navbar=document.getElementById("navbar");
+window.addEventListener("scroll",()=>{
+  navbar.classList.toggle("scrolled",window.scrollY>50);
+});
+</script>
+
 </body>
 </html>
-
